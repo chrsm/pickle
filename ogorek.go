@@ -304,8 +304,9 @@ loop:
 		case opProto:
 			var v byte
 			v, err = d.r.ReadByte()
-			if err == nil && !(0 <= v && v <= 4) {
-				// We support protocol opcodes for up to protocol 4.
+			if err == nil && !(0 <= v && v <= 5) {
+				// We support protocol opcodes for up to protocol 5.
+				// TODO: see what others are missing from 5 (if any)
 				//
 				// The PROTO opcode documentation says protocol version must be in [2, 256).
 				// However CPython also loads PROTO with version 0 and 1 without error.
